@@ -43,3 +43,39 @@ export function Star(props:StarPropsType){
         </span>
     )
 }
+
+
+
+
+
+
+//-------------------------2 вариант реализации. Можем передавать данные в функцию сразу setValue={()=> setValue(1), которую передаем----------------------------------------
+
+// export function UnControlRating(props:RatingPropsType){
+//     let [value, setValue]=useState(0)
+//
+//     return (
+//         <div>
+//
+//             <Star selected={value > 0} setValue={()=> setValue(1)}/>
+//             <Star selected={value > 1} setValue={()=> setValue (2)}/>
+//             <Star selected={value > 2} setValue={()=> setValue (3)}/>
+//             <Star selected={value > 3} setValue={()=> setValue (4)}/>
+//             <Star selected={value > 4} setValue={()=> setValue (5)}/>
+//         </div>
+//     )
+// }
+//
+// type StarPropsType = {
+//     selected: boolean
+//     setValue: () => void // тогда тут уже просто предедаем анонимную функцию
+// }
+// export function Star(props:StarPropsType){
+//
+//     return(
+//         /*props.selected ? <span><b>star</b></span> : <span>star</span>*/ // один из вариантов рефакторинга, можно и так
+//         <span onClick={()=>{props.setValue()}}>
+//             {props.selected ? <b>star </b> : 'star '}
+//         </span>
+//     )
+// }

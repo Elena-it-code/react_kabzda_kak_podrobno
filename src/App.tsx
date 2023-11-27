@@ -4,7 +4,6 @@ import {OnOff} from "./On/OnOff";
 import {UnControlAccordion} from "./UnControlAccordion/UnControlAccordion";
 import {UnControlRating} from "./UnControlRating/UnControlRating";
 import {Rating, RatingValueType} from "./Rating/Rating";
-import {UnControlRating2} from "./UnControlRating2/UnControlRating2";
 
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
             <UnControlAccordion titleValue={'Menu'}/>
             <UnControlAccordion titleValue={'Users'}/>
             <UnControlRating/>
-            <UnControlRating2/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
 
             {/*<OnOff on={false}/>

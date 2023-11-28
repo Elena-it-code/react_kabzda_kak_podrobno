@@ -10,6 +10,7 @@ import {Accordion} from "./Accordion/Accordion";
 function App() {
 
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    let [accordionCollapsed, setAccordionCollapsed]= useState<boolean>(false)
 
     return (
         <div className="App">
@@ -18,7 +19,7 @@ function App() {
             <UnControlAccordion titleValue={'Users'}/>
             <UnControlRating/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
-            <Accordion titleValue={'MENU'} collapsed={true}/>
+            <Accordion titleValue={'MENU'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
 
             {/*<OnOff on={false}/>
            <OnOff on={true}/>*/}

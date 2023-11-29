@@ -16,7 +16,7 @@ function App() {
 
     return (
         <div className="App">
-            <UnControlOnOff/>
+            <UnControlOnOff onChange={setSwitchOn}/> {switchOn.toString()}
             <UnControlAccordion titleValue={'Menu'}/>
             <UnControlAccordion titleValue={'Users'}/>
             <UnControlRating/>

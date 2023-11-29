@@ -3,6 +3,7 @@ import {useState} from "react";
 
 type PropsType = {
     //on: boolean
+    onChange: (on: boolean) => void
 }
 
 export function UnControlOnOff (props:PropsType) {
@@ -37,10 +38,22 @@ export function UnControlOnOff (props:PropsType) {
     };
 
 
+    //вынесли логику вверх
+    const onClicked = ()=>{
+        setOn(true)
+        props.onChange(true)
+    }
+
+    //вынесли логику вверх
+    const offClicked =()=>{
+        setOn(false)
+        props.onChange(false)
+    }
+
     return (
         <div>
-            <div style={onStyle} onClick={()=>{setOn(true)}}>On</div>
-            <div style={offStyle} onClick={()=>{setOn(false)}}>Off</div>
+            <div style={onStyle} onClick={onClicked}>On</div>
+            <div style={offStyle} onClick={offClicked}>Off</div>
             <div style={indicatorStyle}></div>
         </div>
     )

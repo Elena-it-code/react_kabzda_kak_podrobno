@@ -5,21 +5,24 @@ import {UnControlAccordion} from "./UnControlAccordion/UnControlAccordion";
 import {UnControlRating} from "./UnControlRating/UnControlRating";
 import {Rating, RatingValueType} from "./Rating/Rating";
 import {Accordion} from "./Accordion/Accordion";
+import {UnControlOnOff} from "./On/UnControlOnOff";
 
 
 function App() {
 
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [accordionCollapsed, setAccordionCollapsed]= useState<boolean>(false)
+    let [on, setOn] = useState<boolean>(false); // hook
 
     return (
         <div className="App">
-            <OnOff/>
+            <UnControlOnOff/>
             <UnControlAccordion titleValue={'Menu'}/>
             <UnControlAccordion titleValue={'Users'}/>
             <UnControlRating/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <Accordion titleValue={'MENU'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
+            <OnOff on={on} onClick={setOn}/>
 
             {/*<OnOff on={false}/>
            <OnOff on={true}/>*/}

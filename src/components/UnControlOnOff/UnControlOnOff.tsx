@@ -4,11 +4,13 @@ import {useState} from "react";
 type PropsType = {
     //on: boolean
     onChange: (on: boolean) => void
+    defaultOn?: boolean
+    defaultOff?: boolean
 }
 
 export function UnControlOnOff (props:PropsType) {
    /*let on = false;*/
-   let[on, setOn] = useState(false); // hook
+   let[on, setOn] = useState(props.defaultOn ? props.defaultOn : false); // hook
     const onStyle ={
         width: '50px',
         height: '30px',

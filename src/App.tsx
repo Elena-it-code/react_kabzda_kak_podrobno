@@ -19,7 +19,7 @@ function App() {
             <UnControlOnOff onChange={setSwitchOn}/> {switchOn.toString()}
             <UnControlAccordion titleValue={'Menu'}/>
             <UnControlAccordion titleValue={'Users'}/>
-            <UnControlRating/>
+            <UnControlRating defaultValue={ratingValue} onChange={value => value}/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <Accordion titleValue={'MENU'} collapsed={accordionCollapsed} onChange={()=>setAccordionCollapsed(!accordionCollapsed)}/>
             <OnOff on={switchOn} onChange={setSwitchOn}/>

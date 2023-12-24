@@ -12,15 +12,17 @@ export default {
     component: OnOff
 }
 
+const callback =action('on or off clicked')
+
 export const onMode =()=>{
     return (
-        <OnOff on={true} onChange={x=>x}/>
+        <OnOff on={true} onChange={callback}/>
     )
 }
 
 export const offMode =()=>{
     return (
-        <OnOff on={false} onChange={()=>{}}/>
+        <OnOff on={false} onChange={callback}/>
     )
 }
 

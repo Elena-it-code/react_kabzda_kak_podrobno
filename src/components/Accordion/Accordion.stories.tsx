@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import type {Meta, StoryObj} from '@storybook/react';
+>>>>>>> c5daabce5f5f0ab148eaf191057e8fe5076b25a5
 import {action} from '@storybook/addon-actions';
 
 import {Accordion} from './Accordion';

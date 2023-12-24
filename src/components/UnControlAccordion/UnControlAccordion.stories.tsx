@@ -9,8 +9,6 @@ export default {
 }
 
 
-const onChangeHandler = action('onChange')
-
 export const CollapsedAccordion = () => {
     return <UnControlAccordion titleValue={'Collapsed Accordion'}/>
 

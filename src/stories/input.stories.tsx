@@ -1,5 +1,5 @@
-import {action} from '@storybook/addon-actions';
-import React, {ChangeEvent, ChangeEventHandler, HTMLInputTypeAttribute, useRef, useState} from "react";
+import React, {ChangeEvent, useRef, useState} from "react";
+import {action} from "@storybook/addon-actions";
 
 
 /*const meta: Meta<typeof Accordion> = {
@@ -22,8 +22,6 @@ export const TrackValueOfUnControlledInput = () => {
     }
     return <> <input onChange={ onChangeHandler } /> - {value} </>;
 }
-
-
 export const GetValueOfUnControlledInputByButtonPress = () => {
 
     const [value, setValue] = useState('');
@@ -44,6 +42,37 @@ export const GetValueOfUnControlledInputByButtonPress = () => {
          setValue(el.value)
      }  }> save </button> - actual value: {value} </>;*/
 
+}
+
+export const ControlledInput = () => {
+    const [parentValue, setParentValue] = useState('');
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>)=>{
+        setParentValue(e.currentTarget.value)
+    }
+
+    return <input value={parentValue} onChange={onChangeHandler} />
+
+}
+export const ControlledCheckbox = ()=> {
+    const [parentValue, setParentValue] = useState(true);
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>)=>{
+        setParentValue(e.currentTarget.checked)
+    }
+
+    return <input type={"checkbox"} checked={parentValue} onChange={onChangeHandler} />
+
+}
+export const ControlledSelect = ()=> {
+    const [parentValue, setParentValue] = useState<string | undefined>(undefined);
+    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>)=>{
+        setParentValue(e.currentTarget.value)
+    }
+    return <select value={parentValue} onChange={onChangeHandler}>
+        <option>none</option>
+        <option value={'1'}>Minsk</option>
+        <option value={'2'}>Moscow</option>
+        <option value={'3'}>Saint-Petersburg</option>
+    </select>
 }
 
 export const ControlledInputWithFixedValue = () => <input value={'it-incubator.by'}/>

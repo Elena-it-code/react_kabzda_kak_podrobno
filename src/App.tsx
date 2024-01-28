@@ -21,7 +21,7 @@ function App() {
             <UnControlAccordion titleValue={'Users'}/>
             <UnControlRating defaultValue={ratingValue} onChange={value => value}/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
-            <Accordion titleValue={'MENU'} collapsed={accordionCollapsed} onChange={()=>setAccordionCollapsed(!accordionCollapsed)}/>
+            <Accordion titleValue={'MENU'} collapsed={accordionCollapsed} onChange={()=>setAccordionCollapsed(!accordionCollapsed)} items={[ {title:'Dimych', value: '1'}, {title:'Elena', value: '2'}, {title:'Valera', value: '3'}, {title:'Sveta', value: '4'} ]} onClick={()=>{}}/>
             <OnOff on={switchOn} onChange={setSwitchOn}/>
 
             {/*<OnOff on={false}/>

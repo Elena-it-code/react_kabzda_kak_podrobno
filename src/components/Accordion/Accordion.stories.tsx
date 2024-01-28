@@ -9,6 +9,7 @@ import React, {useState} from "react";
 
 //именно так и экспортируем наши компоненты по default
 export default {
+    title: 'Accordion',
     component: Accordion
 }
 
@@ -23,30 +24,32 @@ export default {
 //     }
 // }
 
-const onChangeHandler = action('onChange')
+const callbackHandler = action('accordion mode change event fired')
+const onClickCallbackHandler = action('some item was clicked')
 
-export const CollapsedAccordion = () => {
-    return <Accordion titleValue={'Collapsed Accordion'}
-                   collapsed={true}
-                   onChange={onChangeHandler}/>
-
+export const MenuCollapsedMode = () => {
+    return <Accordion titleValue={'Menu'} collapsed={true} onChange={callbackHandler} items={[]} onClick={onClickCallbackHandler}/>
 }
 
-export const OpenedAccordion = () => {
+export const UsersUnCollapsedMode = () => {
     return (
-        <Accordion titleValue={'Opened Accordion'}
-                   collapsed={false}
-                   onChange={onChangeHandler}/>
+        <Accordion titleValue={'Users'} collapsed={false} onChange={callbackHandler} items={[ {title:'Dimych', value: '1'}, {title:'Elena', value: '2'}, {title:'Valera', value: '3'}, {title:'Sveta', value: '4'} ]} onClick={onClickCallbackHandler}/>
     )
 }
 
-export const AccordionDemo = () => {
-    const [collapsed, setCollapsed] = useState(false)
+export const ModeChanging = () => {
+    const [value, setValue] = useState(false)
     return (
         <Accordion titleValue={'Accordion'}
-                   collapsed={collapsed}
-                   onChange={() => {
-                       setCollapsed(!collapsed)
-                   }}/>
+                   collapsed={value}
+                   onChange={() => {setValue(!value)}}
+                   items={[
+                       {title:'Dimych', value: '1'},
+                       {title:'Elena', value: '2'},
+                       {title:'Valera', value: '3'},
+                       {title:'Sveta', value: '4'}
+                   ]}
+                   /*onClick={onClickCallbackHandler}/>*/
+                   onClick={(value)=>{alert(`User with ID ${value} should be HAPPY!!!`)}}/>
     )
 }

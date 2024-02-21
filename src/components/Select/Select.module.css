@@ -22,3 +22,8 @@
     display: block;
 }*/
 
+.item.selected {
+    background-color: blue;
+    color: white;
+}
+

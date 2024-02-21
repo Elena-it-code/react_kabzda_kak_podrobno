@@ -8,6 +8,7 @@ import React, {useState} from "react";
 };*/
 
 //именно так и экспортируем наши компоненты по default
+
 export default {
     title: 'Accordion',
     component: Accordion

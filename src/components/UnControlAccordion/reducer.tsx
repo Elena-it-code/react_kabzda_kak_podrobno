@@ -18,7 +18,5 @@ export const reducer = (state: StateType, action: ActionType): StateType => {
             throw new Error("Bad action type")      // как один из вариантов мы можем сгенерировать новую ошибку в default:
         // if (action.type === TOGGLE_COLLAPSED) {               // если к нам пришел объект action и у него в этой инструкции сидит тип "TOGGLE-COLLAPSED", т.е. "совпало ключ и замок"
         //   return !state                                    // то мы тогда вернем противоподложное значение стэйта !state
-    }
-
-    return state                                    // если к нам пришла инструкция, а мы не нашли совпадение по ключу type н/р: "REMOVE-TASK", "ADD-TASK" и т.д., то мы вернем тот state, который к нам пришел без изменения
+    }     // если к нам пришла инструкция, а мы не нашли совпадение по ключу type н/р: "REMOVE-TASK", "ADD-TASK" и т.д., то мы вернем тот state, который к нам пришел без изменения
 }

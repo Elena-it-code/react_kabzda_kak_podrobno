@@ -1,5 +1,5 @@
 import {useReducer} from "react";
-import {reducer, TOGGLE_CONSTANT} from "./reducer";
+import {reducer, TOGGLE_COLLAPSED} from "./reducer";
 
 export type AccordionPropsType = {
     titleValue: string
@@ -20,7 +20,7 @@ export function UnControlAccordion (props: AccordionPropsType) {
             чтобы можно было преобразовать state. Стартовое значение котрого передается тут: useReducer(reduсer, стартовое значение: false)
             с помощью этого reduсer(а) по этим правилам (action.type === "TOGGLE-COLLAPSED")
             */}
-            <AccordionTitle title={props.titleValue} onClick={()=>{dispatch({type: TOGGLE_CONSTANT })}}/>       {/*мы должны в dispath отправить action. action - это объект.сщздаем объект{},  у этого объекта ОБЯЗАТЕЛЬНО должен быть type. Инструкция что нужно сделать "БОЛЬШИШИМИ-БУКВАМИ" */}
+            <AccordionTitle title={props.titleValue} onClick={()=>{dispatch({type: TOGGLE_COLLAPSED })}}/>       {/*мы должны в dispath отправить action. action - это объект.сщздаем объект{},  у этого объекта ОБЯЗАТЕЛЬНО должен быть type. Инструкция что нужно сделать "БОЛЬШИШИМИ-БУКВАМИ" */}
             {/*<button onClick={()=>{setCollapsed(!collapsed)}}>TOGGLE</button>*/}
             { !state.collapsed && <AccordionBody/>}
         </div>

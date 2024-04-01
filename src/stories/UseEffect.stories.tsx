@@ -59,3 +59,45 @@ export const SimpleExample = () => {
 
 // Если мы передали пустой массив в зависмость в useEffect( ()=>{}, deps: []), то UseEffect() срабатывает один раз,
 // при монтировании компоненты, её зарождении. При изменении компоненты он срабатывать больше не будет
+
+
+export const SetTimeoutExample = () => {
+    const [fake, setFake] = useState(1)
+    const [counter, setCounter] = useState(1);
+
+    console.log("SetTimeoutExample")
+
+    useEffect(() => {
+
+        setTimeout(()=> {
+            console.log("SetTimeout")
+            document.title = counter.toString()
+        }, 1000)
+    }, [counter]);
+
+
+    return <>
+        Hello! {counter} -- {fake}
+        <button onClick={()=> {setFake(fake+1)}}>fake +</button>
+        <button onClick={()=> {setCounter(counter+1)}}>counter +</button>
+    </>
+}
+
+export const SetTIntervalExample = () => {
+    const [fake, setFake] = useState(1)
+    const [counter, setCounter] = useState(1);
+
+    console.log("SetTIntervalExample")
+
+    useEffect(() => {
+
+        setInterval(()=> {
+            console.log("tick" + counter)
+            setCounter((state)=>state + 1);
+        }, 1000);
+    }, [])
+
+    return <>
+        Hello, counter: {counter} - fake: {fake}
+    </>
+}

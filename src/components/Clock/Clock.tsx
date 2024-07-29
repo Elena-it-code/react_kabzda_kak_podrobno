@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 
-
 export type ClockPropsType = {}
 
 
@@ -36,8 +35,8 @@ export const Clock: React.FC<ClockPropsType> = (props) => {
             <span>{get2digitalString(date.getSeconds())}</span>
         </div>
     )
-}
 
+};
 
 
 

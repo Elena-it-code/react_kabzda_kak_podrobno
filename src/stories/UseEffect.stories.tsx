@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {ResetTv} from "@mui/icons-material";
 
 
 export default {
@@ -121,3 +122,31 @@ export const ResetEffectExample = () => {
         Hello, counter {counter} <button onClick ={ increase }>+</button>
     </>
 }
+
+export const KeysTrackerExample = () => {
+    const [text, setText] = useState('');
+
+    console.log("Component rendered with " + text)
+
+    useEffect(() => {
+    const handler = (e: KeyboardEvent)=> { // создали ссылку на нашу функцию
+            console.log(e.key)
+        // setText(text + e.key) // если мы будем зачищать, window.removeEventListener, то и такой вариант тоже актуален
+            setText((state)=> state + e.key)
+        }
+        window.addEventListener('keypress', handler) // чтобы и здесь вызвать ее
+        return()=> {
+            window.removeEventListener('keypress',handler) // и здесь, чтобы отписаться
+        }
+    }, [])
+    return <>
+        Typed text: {text}
+    </>
+}
+
+
+// каждый раз, когда наша компонента будет умирать, будет запускаться наша зачитска
+// return()=> {
+//     window.removeEventListener('keypress',handler) // и здесь, чтобы отписаться
+// }
+// тем самым подчищать за собой свой мусор. И это хорошо. У нас не будет никакой утечки данных.

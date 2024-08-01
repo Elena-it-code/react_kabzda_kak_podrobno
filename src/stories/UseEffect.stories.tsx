@@ -92,10 +92,14 @@ export const SetTIntervalExample = () => {
 
     useEffect(() => {
 
-        setInterval(()=> {
+        const intervalId = setInterval(()=> {
             console.log("tick" + counter)
             setCounter((state)=>state + 1);
         }, 1000);
+
+        return ()=> {
+            clearInterval(intervalId)
+        }
     }, [])
 
     return <>
@@ -150,3 +154,4 @@ export const KeysTrackerExample = () => {
 //     window.removeEventListener('keypress',handler) // и здесь, чтобы отписаться
 // }
 // тем самым подчищать за собой свой мусор. И это хорошо. У нас не будет никакой утечки данных.
+

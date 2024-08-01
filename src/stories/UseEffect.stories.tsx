@@ -101,3 +101,23 @@ export const SetTIntervalExample = () => {
         Hello, counter: {counter} - fake: {fake}
     </>
 }
+
+
+export const ResetEffectExample = () => {
+    const [counter, setCounter] = useState(1);
+
+    console.log("Component rendered with " + counter)
+
+    useEffect(() => {
+        console.log('Effect occurred' + counter)
+
+        return () => {
+            console.log("RESET EFFECT " + counter)
+        }
+
+    }, [counter])
+    const increase = ()=>{ setCounter(counter+1) }
+    return <>
+        Hello, counter {counter} <button onClick ={ increase }>+</button>
+    </>
+}

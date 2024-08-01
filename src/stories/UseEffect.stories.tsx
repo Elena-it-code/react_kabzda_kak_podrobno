@@ -155,3 +155,22 @@ export const KeysTrackerExample = () => {
 // }
 // тем самым подчищать за собой свой мусор. И это хорошо. У нас не будет никакой утечки данных.
 
+export const SetTimeoutExample2 = () => {
+    const [text, setText] = useState('');
+
+    console.log("Component rendered with " + text)
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            console.log('TIMEOUT EXPIRED')
+            setText('3 seconds passed')
+        }, 3000)
+        return () => {
+            clearTimeout(timeoutId)
+        }
+    }, [text])
+
+    return <>
+        text: {text}
+    </>
+}
